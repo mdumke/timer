@@ -1,6 +1,6 @@
 # Timer
 
-Minimalistic command-line based countdown timer based on Bash.
+Minimalistic command-line based countdown timer based on Bash. Plays a soundfile after the set time is exprired.
 
 ```txt
 Usage: timer MINUTES [SECONDS]
