@@ -11,4 +11,6 @@ Available options:
   MINUTES     Time to count down in minutes
 ```
 
-Expects soundfile `gong.wav` to be in `~/projects/timer/`.
+Place this code into `$HOME/lib/timer` and symlink `timer.sh` to somewhere in your `$PATH`. To use other paths, update the `play_sound` function in `timer.sh`.
+
+Credits: The soundfile is taken from [airtaxi](https://freesound.org/people/airtaxi/sounds/76886/), published on [freesound.org](https://freesound.org).

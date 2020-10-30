@@ -10,7 +10,7 @@ print_usage_info () {
 }
 
 play_sound () {
-  speaker-test -t wav -r 44100 -w ~/projects/timer/gong.wav -l 1 > /dev/null
+  speaker-test -t wav -r 44100 -w $HOME/lib/timer/gong.wav -l 1 > /dev/null
 }
 
 if [[ $# -eq 0 ]] || [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
