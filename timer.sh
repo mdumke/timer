@@ -2,12 +2,13 @@
 
 print_usage_info () {
   echo -e "timer - Minimalistic countdown timer\n"
-  echo -e "Usage: timer MINUTES [SECONDS]\n"
+  echo -e "Usage: timer MINUTES:SECONDS\n"
   echo -e "Available options:\n"
   echo -e "  -h,--help\tShow this help text"
   echo -e "  -t,--test\tCheck if sound works"
   echo -e "  MINUTES\tMinutes to count down (up to 60)"
-  echo -e "  SECONDS\tOptional: additional seconds to count down"
+  echo -e "  SECONDS\tAdditional seconds to count down\n"
+  echo -e "Usage example: timer 10:30"
 }
 
 play_sound () {
@@ -27,12 +28,13 @@ if [[ "$1" == "--test" ]] || [[ "$1" == "-t" ]]; then
 fi
 
 # main countdown loop
-seconds=${2:-0}
-i=$(($1 * 60 + $seconds))
+minutes=$(echo "$1" | cut -d: -f1)
+seconds=$(echo "$1" | cut -d: -f2)
+i=$(($minutes * 60 + $seconds))
 
 while [[ "$i" -ge 0 ]]; do
-  echo $i | awk '{printf "\rtime remaining: %s", strftime("%-M:%S", $0)}'
-  i=$(( i - 1))
+  echo $i | awk '{printf "\rtime remaining: %s \b", strftime("%-M:%S", $0)}'
+  i=$(( i - 1 ))
   sleep 1
 done
 
